@@ -1,0 +1,122 @@
+the edthe 0.3878
+the withthe 0.3836
+the riend 0.3828
+the idon't 0.3796
+the afilm 0.3793
+
+movie film 0.4448
+movie worst 0.3925
+movie time 0.3754
+movie movie. 0.3689
+movie way 0.3497
+
+story plot 0.4000
+story stupid 0.3535
+story acting 0.3482
+story most 0.3062
+story poor 0.2943
+
+is it's 0.3737
+is was 0.3252
+is are 0.2967
+is scene 0.2548
+is rible 0.2535
+
+great idea 0.3281
+great however 0.3222
+great bas 0.3028
+great production 0.3000
+great spec 0.2977
+
+bad really 0.4688
+bad awful 0.4281
+bad appoint 0.3810
+bad it's 0.3773
+bad lik 0.3723
+
+good thing 0.4751
+good worth 0.3189
+good didn't 0.3187
+good waste 0.3034
+good bad 0.2833
+
+Token 'boring' not found in vocabulary.
+
+interesting sequ 0.3279
+interesting ,it 0.3116
+interesting actor 0.3108
+interesting stupid 0.2889
+interesting real 0.2817
+
+funny me 0.3814
+funny ite 0.3269
+funny bad 0.3200
+funny those 0.3058
+funny well 0.3003
+
+how but 0.4201
+how kid 0.4124
+how have 0.3769
+how actually 0.3417
+how arent 0.3251
+
+they actors 0.3760
+they show 0.3364
+they have 0.3275
+they those 0.3272
+they some 0.3082
+
+people tri 0.3456
+people can 0.3410
+people want 0.3168
+people those 0.3067
+people come 0.2921
+
+very acting 0.3575
+very lik 0.3426
+very pretty 0.3274
+very bad 0.3230
+very cast 0.3148
+
+ed ish 0.3350
+ed to 0.3202
+ed ed, 0.3077
+ed ther 0.2643
+ed ink 0.2627
+
+ing c 0.2965
+ing ic 0.2865
+ing use 0.2810
+ing ed, 0.2688
+ing his 0.2679
+
+ly ly, 0.3651
+ly with 0.3297
+ly that 0.2885
+ly some 0.2773
+ly just 0.2752
+
+er ch 0.3559
+er er, 0.3379
+er ish 0.2912
+er bar 0.2682
+er des 0.2636
+
+est å 0.3305
+est ript 0.3225
+est ite 0.3137
+est anim 0.3103
+est ally 0.3085
+
+able un 0.3426
+able ably 0.2779
+able icul 0.2778
+able arly 0.2731
+able less 0.2664
+
+ible press 0.3316
+ible fortun 0.3277
+ible ry 0.2874
+ible find 0.2834
+ible ion 0.2798
+

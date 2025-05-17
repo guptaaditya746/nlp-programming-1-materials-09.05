@@ -1,0 +1,2 @@
+['the', 'f', 'o', 'x', 'es', 'are', 'r', 'unn', 'ing', 'qu', 'ick', 'ly', '.']
+['this', 'is', 'a', 'movie']
