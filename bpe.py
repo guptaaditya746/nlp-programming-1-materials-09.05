@@ -34,23 +34,58 @@ class BPETokenizer:
     ################################# BPE merge rule finding #########################################
     ############################## Lecture slides: NLP:III-43--51 ####################################
     def pre_tokenize(self, text: str) -> List[str]:
-        """Preprocess the texts by normaliz    def preprocess(self, texts: List[str]) -> List[List[List[str]]]:
-ing them (e.g. lowercasing) and 
-        tokenizing them into strings (e.g. splitting them by whitespace).
-        Args:
-            text: Input text (string) to be preprocessed.
-        Returns:
-            List of tokenized strings.
-        """
-        # TODO: Implement the method to lowercase and split the input by whitespace
-        # (optional) You can also use one or more heuristics introduced in the lecture (NLP:III-14)
+        """Preprocess the text: normalize, clean HTML, and tokenize with regex."""
+        # Lowercase
         text = text.lower()
-        tokens = text.split()
 
-        ## ashkar maybe try this
-        # use some regular expression do to tokenizaition
-        #  
+        # Remove HTML tags like <br />
+        text = re.sub(r'<[^>]+>', ' ', text)
+
+        # Replace multiple punctuation (e.g. !!!, ???) with single
+        text = re.sub(r'([!?.,])\1+', r'\1', text)
+
+        # Normalize dashes (like em-dash, en-dash, hyphens)
+        text = re.sub(r'[–—−]', '-', text)
+
+        # Remove unwanted characters (like fancy quotes, non-breaking spaces)
+        text = re.sub(r'[“”]', '"', text)
+        text = re.sub(r"[‘’]", "'", text)
+        text = re.sub(r'\xa0', ' ', text)
+
+        # Handle common contractions and abbreviations
+        text = re.sub(r"won't", "will not", text)
+        text = re.sub(r"can't", "can not", text)
+        text = re.sub(r"n't", " not", text)
+        text = re.sub(r"'re", " are", text)
+        text = re.sub(r"'s", " is", text)
+        text = re.sub(r"'d", " would", text)
+        text = re.sub(r"'ll", " will", text)
+        text = re.sub(r"'t", " not", text)
+        text = re.sub(r"'ve", " have", text)
+        text = re.sub(r"'m", " am", text)
+
+        # Handle special cases from sample text
+        text = re.sub(r'\*\*\*spoilers\*\*\*', ' spoilers ', text, flags=re.IGNORECASE)
+        text = re.sub(r'\b\d+/\d+\b', ' ', text)  # Remove scores like 4/10
+        text = re.sub(r'\b\w+-\w+\b', lambda m: m.group(0).replace('-', ' '), text)  # Split hyphenated words
+        text = re.sub(r'\.{3,}', '...', text)  # Normalize ellipses
+        text = re.sub(r'\s+', ' ', text)  # Collapse multiple spaces
+
+        # Handle tokenization using regex:
+        # Match:
+        #   1. Words with apostrophes (contractions like "don't")
+        #   2. Words (letters or digits)
+        #   3. Punctuation as standalone tokens
+        #   4. Common emoticons/symbols
+        pattern = r"""
+            \b\w+'\w+|\b\w+\b|[^\w\s]|
+            [;:]-?[\)\(dDpP/\\]|  # Basic emoticons
+            \d+\.\d+               # Numbers with decimals
+        """
+        tokens = re.findall(pattern, text, re.VERBOSE)
+
         return tokens
+
 
     def preprocess(self, texts: List[str]) -> List[List[str]]:
         """
@@ -442,5 +477,5 @@ if __name__ == "__main__":
     print("Great! All tests passed!")
     print("Training the tokenizer on the IMDB dataset...")
 
-    main(num_merges=1000, max_vocab_size=10000) # TODO: change the number of merges and/or vocab size
+    main(num_merges=10000, max_vocab_size=40000) # TODO: change the number of merges and/or vocab size
     print("Tokenizer trained and saved successfully.")
